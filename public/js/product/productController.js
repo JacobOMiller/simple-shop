@@ -5,9 +5,9 @@ var app = angular.module('MyApp');
 
 app.controller('Product.productController',[
     //dependency list,
-    '$scope', '$http', '$state',
+    '$scope', '$http', '$state','Cart.CartService',
     //call back function to creat controller
-    function($scope, $http, $state){
+    function($scope, $http, $state, CartService){
         $scope.product = {};
 
         $scope.create= function(){
@@ -20,7 +20,8 @@ app.controller('Product.productController',[
 
             })
             .success(function (response){
-                console.log('product saved');
+                console.log('product saved' ,product);
+
             })
 
 
@@ -38,7 +39,8 @@ app.controller('Product.productController',[
             })
         }
         $scope.addToCart = function (product) {
-            console.log('this is the product', product);
+            //add the product to the cart service
+            CartService.addProduct (product);
         }
 
         //create setup function to run when controller is created
