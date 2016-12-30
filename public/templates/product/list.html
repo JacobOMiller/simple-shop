@@ -1,0 +1,13 @@
+<h2>products</h2>
+
+<a ui-sref="product-create" class="btn btn-success">Create Product</a>
+<!--list out the products found in the productList array-->
+<ul>
+    <li ng-repeat="product in productList">
+<!-- print out the values of the product -->
+        {{ product.title }}<br>
+        {{ product.description }}<br>
+        {{ product.price }}<br>
+        <button ng-click="addToCart(product)">add to cart</button>
+    </li>
+</ul>
